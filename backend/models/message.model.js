@@ -1,5 +1,4 @@
-const mongoose = import('mongoose');
-
+import mongoose from 'mongoose';
 const messageSchema = new mongoose.Schema({
     senderId: {
         ref: 'User',

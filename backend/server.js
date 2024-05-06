@@ -4,17 +4,19 @@ import authRoutes from "./routes/auth.routes.js"
 import messageRoutes from "./routes/messages.routes.js"
 import connectToDB from "./db/connectdb.js";
 import cookieParser from "cookie-parser";
+import protectRoute from "./middleware/protectRoute.js";
 
 const app = express()
 
 dotenv.config()
 const port = process.env.PORT
+app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-app.use(cookieParser())
+
 
 app.use('/api/users', authRoutes)
-app.use('/api/messages', messageRoutes)
+app.use('/api/messages',protectRoute,messageRoutes)
 
 app.listen(port, () => {
     connectToDB()
