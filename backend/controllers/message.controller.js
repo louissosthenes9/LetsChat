@@ -11,7 +11,6 @@ export const sendMessage = async  (req, res) => {
             participants:{$all:[senderId,receiverId]},
         })
 
-
         if(!conversation){
             conversation = await ConversationModel.create({
                 participants:{$all:[senderId,receiverId]},
@@ -36,5 +35,29 @@ export const sendMessage = async  (req, res) => {
         res.status(400).json({
             error: "Error sending message"
         });
+    }
+}
+
+export const getMessages = async (req,res) =>{
+    try {
+        const {id:userToChat}= req.params;
+        const senderId = req.user._id;
+
+        const conversation = await ConversationModel.findOne({
+            participants:{$all:[senderId,userToChat]},
+
+        }).populate("messages")
+
+
+        res.status(200).json(conversation.messages)
+       
+        if(!conversation) return res.status(200).json([]);
+
+    } catch (error) {
+        console.log("Error in the get messsages controller: ", error.message)
+        res.status(500).json({
+            error:"Internal server error"
+        })
+        
     }
 }
