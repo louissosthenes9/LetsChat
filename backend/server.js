@@ -17,10 +17,9 @@ app.use(express.json())
 
 app.use('/api/users', authRoutes)
 app.use('/api/messages',protectRoute,messageRoutes)
-
+ 
 app.listen(port, () => {
     connectToDB()
     console.log(`Server started on port ${port}`)
-
     
 })
