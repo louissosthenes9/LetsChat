@@ -7,7 +7,7 @@ export default function SignUp() {
 
       {/* Adding a glass morphic effect  */}
       <div className="w-full p-6 rounded-lg shadow-md bg-clip-padding backdrop-filter backdrop-blur-lg">
-        <h1 className='text-3xl font-semibold text-center'>Login <span className='text-blue-500'>LetChat</span></h1>
+        <h1 className='text-3xl font-semibold text-center'><span className='text-white'>Login</span> <span className='text-blue-500'>LetChat</span></h1>
         <form action="" method="post" className='text-white'>
           <div>
             {/* FullName field */}
@@ -16,7 +16,7 @@ export default function SignUp() {
               Full Name 
               </span>
             </label>
-            <input type="text" placeholder='Enter username' className="w-full input input-bordered h-10" />
+            <input type="text" placeholder='Enter username' className="w-full input input-bordered h-10 text-black" />
           </div>
 
           {/* Email field */}
@@ -27,7 +27,7 @@ export default function SignUp() {
               </span>
             </label>
 
-            <input type="email" placeholder='you@gmail.com' className="w-full input input-bordered h-10" />
+            <input type="email" placeholder='you@gmail.com' className="w-full input input-bordered h-10 text-black" />
           </div>
 
           {/* password field */}
@@ -38,7 +38,7 @@ export default function SignUp() {
               </span>
             </label>
 
-            <input type="password" placeholder='Confirm password' className="w-full input input-bordered h-10" />
+            <input type="password" placeholder='Confirm password' className="w-full input input-bordered h-10 text-black" />
           </div>
 
           {/* confirm password field */}
@@ -49,7 +49,7 @@ export default function SignUp() {
               </span>
             </label>
 
-            <input type="password" placeholder='password' className="w-full input input-bordered h-10" />
+            <input type="password" placeholder='password' className="w-full input input-bordered h-10 text-black" />
           </div>
            
           {/* gender checkbox */}
