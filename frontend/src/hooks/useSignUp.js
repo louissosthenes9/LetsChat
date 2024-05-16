@@ -1,53 +1,54 @@
-import React, { useState } from 'react'
-import toast from 'react-hot-toast'
-
-const useSignUp = () => {
-    const [loading,setLoading]=useState(false)
-    const signup = async({fullName,username,password,confirmPassword,gender})=>{
-          const success = handleInputErrors({
-            fullName,username,password,confirmPassword,gender
-          })
-
-          if(!success) return;
-
-          setLoading(true)
-          try {
-            const res = await fetch("http://localhost:3000/api/auth/signup",{
-                method:"POST",
-                headers:{"content-Type":"application/json"},
-                body:JSON.stringify({fullName,username,password,confirmPassword,gender})
-            })
-
-            const data = await res.json();
-            console.log(data)
-          } catch (error) {
-            
-          }finally{
-            setLoading(false)
-          }
-     }
-
-     return {loading,signup}
-
-}
-
-export default useSignUp
+import { useState } from "react";
+import toast from "react-hot-toast";
 
 
-function handleInputErrors({fullName,username,password,confirmPassword,gender}){
-    if(!fullName|| !username|| !password|| !confirmPassword || !gender){
-        toast.error("please fill in all the fields")
-        return false
-    }
+const useSignup = () => {
+	const [loading, setLoading] = useState(false);
 
-    if(password !== confirmPassword){
-        toast.error("passwords must match")
-        return false
-    }
+	const signup = async ({ fullName, username, password, confirmPassword, gender,email }) => {
+		const success = handleInputErrors({ fullName,email, username, password, confirmPassword, gender });
+		if (!success) return;
 
-    if(password.legth < 6){
-        toast.error("Passwords must be atleast 6 characters")
+		setLoading(true);
+		try {
+			const res = await fetch("/api/users/signup", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ fullName,email, username, password, confirmPassword, gender }),
+			});
 
-        return false
-    }
+			const data = await res.json();
+			if (data.error) {
+				throw new Error(data.error);
+			}
+			localStorage.setItem("chat-user", JSON.stringify(data));
+		} catch (error) {
+			toast.error(error.message);
+      console.log(error)
+		} finally {
+			setLoading(false);
+		}
+	};
+
+	return { loading, signup };
+};
+export default useSignup;
+
+function handleInputErrors({ fullName, username, password, confirmPassword,email, gender }) {
+	if (!fullName || !username || !password || !confirmPassword || !gender || !email) {
+		toast.error("Please fill in all fields");
+		return false;
+	}
+
+	if (password !== confirmPassword) {
+		toast.error("Passwords do not match");
+		return false;
+	}
+
+	if (password.length < 6) {
+		toast.error("Password must be at least 6 characters");
+		return false;
+	}
+
+	return true;
 }
