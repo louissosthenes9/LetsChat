@@ -58,7 +58,7 @@ const SignUp = () => {
 							value={inputs.username}
 							onChange={(e) => setInputs({ ...inputs, username: e.target.value })}
 						/>
-				  </div>
+				    </div>
 
           {/* Email field */}
 					<div>
@@ -72,7 +72,7 @@ const SignUp = () => {
 							value={inputs.email}
 							onChange={(e) => setInputs({ ...inputs, email: e.target.value })}
 						/>
-				  </div>
+				    </div>
 
 
          {/* password field */}
