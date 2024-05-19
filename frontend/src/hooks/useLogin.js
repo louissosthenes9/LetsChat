@@ -5,7 +5,10 @@ import toast from 'react-hot-toast'
 const useLogin = () => {
     const [loading,setLoading] = useState(false)
     const {setAuth} = useAuthContext()
-    const login = async (username,password)=>{
+    const login = async ({username,password})=>{
+        const success = handleInputErrors({ username, password });
+		if (!success) return;
+   
         setLoading(true)
         try {
 
@@ -16,17 +19,21 @@ const useLogin = () => {
             })
 
             const data = await res.json()
+            if(data){
+                toast.success("data reached backend")
+            }
 
             if(data.error){
                 throw new Error(data.error)
+                
             }
-             
+             toast.success("You have successfully login")
             localStorage.setItem("chat-user",JSON.stringify(data))
             setAuth(data)
       
         } catch (error) {
 
-            toast.error(error)
+           console.log({error})
             
         }finally{
             setLoading(false)
@@ -39,3 +46,19 @@ const useLogin = () => {
 }
 
 export default useLogin
+
+function handleInputErrors({ username, password}) {
+	if (!username) {
+		toast.error("Please fill in username");
+		return false;
+	}else if (!password) {
+        toast.error("Please fill in password")
+    }
+
+	if (password.length < 6) {
+		toast.error("Password must be at least 6 characters");
+		return false;
+	}
+
+	return true;
+}

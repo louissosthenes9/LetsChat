@@ -8,7 +8,8 @@ export default function Login() {
   const { loading, login } = useLogin()
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await login(username, password)
+    console.log(username,password)
+    await login({username, password})
   }
 
 
@@ -18,7 +19,7 @@ export default function Login() {
       {/* Adding a glass morphic effect  */}
       <div className="w-full p-6 rounded-lg shadow-md bg-clip-padding backdrop-filter backdrop-blur-lg">
         <h1 className='text-3xl font-semibold text-center'>Login <span className='text-blue-500'>LetChat</span></h1>
-        <form action="" method="post" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <div>
             <label className='label  p-2'>
               <span className="text-base label-text">
@@ -51,7 +52,7 @@ export default function Login() {
           </Link>
           <div>
             <button 
-           
+            type = "submit"
             className='btn btn-block btn-sm mt-2 border border-slate-700 bg-blue-950 text-white' 
             disabled={loading}>
               {loading ? <span className='loading loading-spinner'></span> : "Login"}
