@@ -24,7 +24,10 @@ const useLogin = () => {
             }
 
             if(data.error){
-                throw new Error(data.error)
+                
+                toast.error(data.error)
+
+                throw new Error(data.error)       
                 
             }
              toast.success("You have successfully login")
