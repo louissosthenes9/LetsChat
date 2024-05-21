@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 export default function Message() {
   return (
@@ -9,7 +9,7 @@ export default function Message() {
              </div>
         </div>
         <div className={`chat-bubble text-white text-bule-500`}>
-          Hi? it's louis
+          Hi? it&amp;s louis
         </div>
         <div className="chat-footer opacity-50 text-xs flex gap-1 items-center">12:42</div>
 
