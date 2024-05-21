@@ -51,9 +51,8 @@ export const getMessages = async (req, res) => {
         }).populate("messages");
 
         if (!conversation) {
-            return res.status(200).json([]);
+            return res.status(404).json([]);
         }
-
         res.status(200).json(conversation.messages);
     } catch (error) {
         console.log("Error in the getMessages controller:", error.message);
