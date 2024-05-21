@@ -1,13 +1,15 @@
-import React from 'react'
+import  {useEffect} from 'react'
 import Messages from './Messages'
 import MessageInput from './MessageInput'
 import NoChatSelected from './NoChatSelected';
+import useConversation from "../../zustand/store.js";
 
 export default function MessageContainer() {
-    const NoChat = true;
+     const {selectedConversation,setSelectedConversation} =useConversation()
+
     return (
         <div className='md:min-w-[450px] flex flex-col'>
-            {NoChat ? (
+            {!selectedConversation ? (
                 <NoChatSelected/>
             ) : (
                 <>
@@ -17,7 +19,7 @@ export default function MessageContainer() {
                             To:
                         </span>
                         <span className="text-gray-900 fontbold">
-                            John Doe
+                            {selectedConversation.fullName}
                         </span>
                     </div>
                     <Messages />
