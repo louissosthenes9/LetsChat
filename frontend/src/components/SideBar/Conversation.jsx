@@ -1,13 +1,15 @@
-import React from 'react';
-import useConversation from '../../zustand/store'; // Ensure the path is correct
 
+import useConversation from '../../zustand/store';
+import {useEffect} from "react"; // Ensure the path is correct
+
+// eslint-disable-next-line react/prop-types
 export default function Conversation({ conversation, emoji }) {
   const { selectedConversation, setSelectedConversation } = useConversation();
 
-  const isSelected = selectedConversation._id === conversation._id; 
-  console.log(isSelected);
-  console.log(selectedConversation._id);
-  console.log(conversation._id);
+
+  // eslint-disable-next-line react/prop-types
+  const isSelected = selectedConversation?._id === conversation._id;
+
 
   return (
     <div
@@ -17,12 +19,14 @@ export default function Conversation({ conversation, emoji }) {
       {/* Avatar goes here */}
       <div className='avatar-online'>
         <div className="w-12 h-12 rounded-full">
+          {/* eslint-disable-next-line react/prop-types */}
           <img src={conversation.profilePic} alt="image" />
         </div>
       </div>
 
       {/* Name and mood emoji */}
       <div className='flex gap-4 justify-between'>
+        {/* eslint-disable-next-line react/prop-types */}
         <p className='font-bold text-white'>{conversation.fullName}</p>
         <span className='text-xl'>{emoji}</span>
       </div>
