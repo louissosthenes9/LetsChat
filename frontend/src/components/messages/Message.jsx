@@ -16,13 +16,13 @@ export default function Message({message}) {
   const formattedTime = TimeConverter(message.createdAt)
   
   return (
-    <div className={`chat ${chatClassName}`}>
+    <div className={`chat pb-3 ${chatClassName}`}>
         <div className="chat-image avatar">
              <div className="w-10 rounded-full">
                  <img src={profilePic || "/vite.svg"} alt="Profile" />
              </div>
         </div>
-        <div className={`chat-bubble text-white ${bubbleBgColor}`}>
+        <div className={`chat-bubble pb-3 text-white ${bubbleBgColor}`}>
           {message.message}
         </div>
         <div className="chat-footer opacity-50 text-xs flex gap-1 items-center text-cyan-400">{formattedTime}</div>
