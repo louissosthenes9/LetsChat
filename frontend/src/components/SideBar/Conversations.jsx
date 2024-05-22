@@ -6,7 +6,7 @@ export default function Conversations() {
   const {loading, conversations} = useGetConversation()
   
   return (
-    <div className="flex flex-col overflow-auto">
+    <div className="flex flex-col">
       {loading?<span className='loading loading-spinner mx-auto'></span>:null} 
       {conversations.map((convo)=>(
         <Conversation
