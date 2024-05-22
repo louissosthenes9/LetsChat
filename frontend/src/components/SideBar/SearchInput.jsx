@@ -5,7 +5,7 @@ import useGetConversation from '../../hooks/useGetConversation';
 import toast from 'react-hot-toast';
 
 export default function SearchInput() {
-  const { selectedConversation } = useConversation();
+  const { selectedConversation,setSelectedConversation } = useConversation();
   const { conversations } = useGetConversation();
   const [search, setSearch] = useState('');
 
@@ -26,7 +26,7 @@ export default function SearchInput() {
     console.log(conversation);
 
     if (conversation) {
-      selectedConversation(conversation);
+      setSelectedConversation(conversation);
       setSearch('');
     } else {
       toast.error("User not found");
