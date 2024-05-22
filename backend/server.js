@@ -6,8 +6,7 @@ import userRoutes from "./routes/user.routes.js"
 import connectToDB from "./db/connectdb.js";
 import cookieParser from "cookie-parser";
 import protectRoute from "./middleware/protectRoute.js";
-
-const app = express()
+import { app } from "./socket/socket.js"
 
 dotenv.config()
 const port = process.env.PORT
