@@ -1,4 +1,5 @@
 import {useAuthContext} from '../../context/AuthContext'
+import { TimeConverter } from '../../utils/Timeconverter'
 import useConversation from '../../zustand/store'
 export default function Message({message}) {
   
@@ -12,6 +13,7 @@ export default function Message({message}) {
   const profilePic = fromMe ? auth.profilePic:selectedConversation?.profilePic
   const bubbleBgColor = fromMe ? "bg-blue-500" : " "
 
+  const formattedTime = TimeConverter(message.createdAt)
   
   return (
     <div className={`chat ${chatClassName}`}>
@@ -23,7 +25,7 @@ export default function Message({message}) {
         <div className={`chat-bubble text-white ${bubbleBgColor}`}>
           {message.message}
         </div>
-        <div className="chat-footer opacity-50 text-xs flex gap-1 items-center">12:42</div>
+        <div className="chat-footer opacity-50 text-xs flex gap-1 items-center text-cyan-400">{formattedTime}</div>
 
     </div> 
   )
