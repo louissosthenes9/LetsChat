@@ -6,7 +6,7 @@ import userRoutes from "./routes/user.routes.js"
 import connectToDB from "./db/connectdb.js";
 import cookieParser from "cookie-parser";
 import protectRoute from "./middleware/protectRoute.js";
-import { app } from "./socket/socket.js"
+import { app, server } from "./socket/socket.js"
 
 dotenv.config()
 const port = process.env.PORT
@@ -19,7 +19,7 @@ app.use('/api/users', authRoutes)
 app.use('/api/messages',protectRoute,messageRoutes)
 app.use('/api/contacts',userRoutes)
  
-app.listen(port, () => {
+server.listen(port, () => {
     connectToDB()
     console.log(`Server started on port ${port}`)
     
