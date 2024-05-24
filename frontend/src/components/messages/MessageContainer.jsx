@@ -8,7 +8,7 @@ export default function MessageContainer() {
      const {selectedConversation,setSelectedConversation} =useConversation()
 
     return (
-        <div className='md:min-w-[450px] flex flex-col'>
+        <div className='md:min-w-[450px] flex flex-col h-full'>
             {!selectedConversation ? (
                 <NoChatSelected/>
             ) : (
