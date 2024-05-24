@@ -6,8 +6,8 @@ export default function Message({message}) {
   const {auth} = useAuthContext()
 
   const {selectedConversation} = useConversation()
-  
-   const fromMe = message.senderId === auth._id
+  const shakeClass = message.shouldShake ? "shake" : ""
+  const fromMe = message.senderId === auth._id
   
   const chatClassName = fromMe ? "chat-end" : "chat-start"
   const profilePic = fromMe ? auth.profilePic:selectedConversation?.profilePic
@@ -16,7 +16,7 @@ export default function Message({message}) {
   const formattedTime = TimeConverter(message.createdAt)
   
   return (
-    <div className={`chat pb-3 ${chatClassName}`}>
+    <div className={`chat pb-3 ${chatClassName} ${shakeClass}`}>
         <div className="chat-image avatar">
              <div className="w-10 rounded-full">
                  <img src={profilePic || "/vite.svg"} alt="Profile" />
