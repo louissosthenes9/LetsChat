@@ -98,7 +98,7 @@ Follow these steps to set up the project locally:
 
 ### Messages
 - **POST /api/messages/:id:** Send a message to a specific user.
-- **GET /api/messages/:id:** Retrieve messages for a conversation.
+- **GET /api/messages/:id:** Retrieve messages for a conversation as an array.
 
 ### Users
 - **GET /api/users/online:** Get a list of online users.
