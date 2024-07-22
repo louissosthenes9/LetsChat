@@ -17,7 +17,7 @@ export default function Message({message}) {
   
   return (
     <div className={`chat pb-3 ${chatClassName} ${shakeClass}`}>
-        <div className="chat-image avatar shake">
+        <div className={`chat-image avatar`}>
              <div className="w-10 rounded-full">
                  <img src={profilePic || "/vite.svg"} alt="Profile" />
              </div>
