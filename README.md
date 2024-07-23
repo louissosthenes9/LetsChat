@@ -54,13 +54,13 @@ Follow these steps to set up the project locally:
 
 2. **Install backend dependencies:**
    ```bash
-   cd server
+   cd backend
    npm install
    ```
 
 3. **Install frontend dependencies:**
    ```bash
-   cd ../client
+   cd ../fronted
    npm install
    ```
 
@@ -79,13 +79,13 @@ Follow these steps to set up the project locally:
 ## Running the Application
 1. **Start the backend server:**
    ```bash
-   cd server
+   cd backend
    npm start
    ```
 
 2. **Start the frontend development server:**
    ```bash
-   cd ../client
+   cd ../frontend
    npm start
    ```
 
@@ -98,7 +98,7 @@ Follow these steps to set up the project locally:
 
 ### Messages
 - **POST /api/messages/:id:** Send a message to a specific user.
-- **GET /api/messages/:id:** Retrieve messages for a conversation.
+- **GET /api/messages/:id:** Retrieve messages for a conversation as an array.
 
 ### Users
 - **GET /api/users/online:** Get a list of online users.
