@@ -1,6 +1,5 @@
 # LetChat Documentation
-
-![ChatApp Logo](#) <!-- Add the link to your image here -->
+![ChatApp Screenshot](https://github.com/louissosthenes9/LetsChat/blob/master/frontend/public/appbanner.png)
 
 Welcome to ChatApp, a real-time chat application built with modern technologies including Socket.io, JWT, React, Node.js, and DaisyUI. This documentation will guide you through the setup, features, and usage of the ChatApp.
 
@@ -126,5 +125,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 Feel free to reach out if you have any questions or need further assistance. Enjoy using ChatApp!
-
-![ChatApp Screenshot](#) <!-- Add the link to your site or a screenshot of the site here -->
